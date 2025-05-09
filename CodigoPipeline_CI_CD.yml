@@ -1,0 +1,88 @@
+trigger:
+  branches:
+    include:
+    - main
+    - master
+    - minharelease
+pool:
+  vmImage: "ubuntu-latest"
+variables:
+- name: rm
+  value: 553227
+- name: location
+  value: eastus
+- name: resourceGroup
+  value: rg-OdontoPrev-Sprint
+- name: service-plan
+  value: odontoprevSprint
+- name: app-name
+  value: Odonto-PrevSolution-$(rm)
+- name: runtime
+  value: JAVA:17-java17
+- name: sku
+  value: F1
+- name: nome-artefato
+  value: OdontoSolution
+stages:
+- stage: CriarInfra
+  jobs:
+  - job: criaWebApp
+    displayName: Criar ou atualizar o Serviço de Aplicativo
+    steps:
+    - task: AzureCLI@2
+      inputs:
+        azureSubscription: 'MyAzureSubscription'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          # Criar o Grupo de Recursos
+          az group create --location $(location) --name $(resourceGroup)
+          # Criar o Plano de Serviço com SO igual a Linux
+          az appservice plan create -g $(resourceGroup) -n $(service-plan) --is-linux --sku $(sku)
+          # Criar um Serviço de Aplicativo com JAVA 17 SE como runtime
+          az webapp create -g $(resourceGroup) -p $(service-plan) -n $(app-name) --runtime "$(runtime)"
+        visibleAzLogin: false
+- stage: BuildApp
+  variables:
+  - name: mavenPOMFile
+    value: 'pom.xml'
+  jobs:
+  - job: buildWebApp
+    displayName: Realizar o Build do App
+    steps:
+    - task: Maven@4
+      displayName: 'Build PetClinic'
+      inputs:
+        mavenPomFile: '$(mavenPOMFile)'
+        testRunTitle: 'Testes Unitários'
+        jdkVersionOption: 1.17
+    - task: CopyFiles@2
+      displayName: 'Copiar a aplicação PetClinic'
+      inputs:
+        SourceFolder: '$(system.defaultworkingdirectory)'
+        Contents: 'target/*.jar'
+        TargetFolder: '$(build.artifactstagingdirectory)'
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publicar artefato do Build Petclinic'
+      inputs:
+        PathtoPublish: '$(build.artifactstagingdirectory)'
+        ArtifactName: $(nome-artefato)
+- stage: DeployApp
+  jobs:
+  - job: DeployWebApp
+    displayName: Deploy no Serviço de Aplicativo
+    steps:
+    - task: DownloadBuildArtifacts@1
+      displayName: 'Baixar artefato gerado'
+      inputs:
+        buildType: 'current'
+        downloadType: 'specific'
+        downloadPath: '$(System.DefaultWorkingDirectory)'
+    - task: AzureRmWebAppDeployment@4
+      displayName: 'Deploy Petclinic'
+      inputs:
+        azureSubscription: 'MyAzureSubscription'
+        appType: 'webApp'
+        WebAppName: $(app-name)
+        packageForLinux: '$(System.DefaultWorkingDirectory)/$(nome-artefato)/target/*.jar'
+

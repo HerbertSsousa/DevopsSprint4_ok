@@ -1,0 +1,415 @@
+{
+    "info": {
+      "name": "Sinistros API Collection",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "AnalisePreditiva",
+        "item": [
+          {
+            "name": "Listar todas as análises preditivas",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": "http://localhost:8081/api/analises"
+            }
+          },
+          {
+            "name": "Buscar análise preditiva por ID",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": "http://localhost:8081/api/analises/:id"
+            }
+          },
+          {
+            "name": "Criar nova análise preditiva",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{}"
+              },
+              "url": "http://localhost:8081/api/analises"
+            }
+          },
+          {
+            "name": "Excluir análise preditiva por ID",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": "http://localhost:8081/api/analises/:id"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Erro",
+        "item": [
+          {
+            "name": "Listar todos os erros",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": "http://localhost:8081/erros"
+            }
+          },
+          {
+            "name": "Buscar erro por ID",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": "http://localhost:8081/erros/:id"
+            }
+          },
+          {
+            "name": "Criar novo erro",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{}"
+              },
+              "url": "http://localhost:8081/erros"
+            }
+          },
+          {
+            "name": "Atualizar erro por ID",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{}"
+              },
+              "url": "http://localhost:8081/erros/:id"
+            }
+          },
+          {
+            "name": "Excluir erro por ID",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": "http://localhost:8081/erros/:id"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Foto",
+        "item": [
+          {
+            "name": "Listar todas as fotos",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": "http://localhost:8081/fotos"
+            }
+          },
+          {
+            "name": "Buscar foto por ID",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": "http://localhost:8081/fotos/:id"
+            }
+          },
+          {
+            "name": "Criar nova foto",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{}"
+              },
+              "url": "http://localhost:8081/fotos"
+            }
+          },
+          {
+            "name": "Atualizar foto por ID",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{}"
+              },
+              "url": "http://localhost:8081/fotos/:id"
+            }
+          },
+          {
+            "name": "Excluir foto por ID",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": "http://localhost:8081/fotos/:id"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Funcionario",
+        "item": [
+          {
+            "name": "Listar todos os funcionários",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": "http://localhost:8081/api/funcionarios"
+            }
+          },
+          {
+            "name": "Buscar funcionário por ID",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": "http://localhost:8081/api/funcionarios/:id"
+            }
+          },
+          {
+            "name": "Criar novo funcionário",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{}"
+              },
+              "url": "http://localhost:8081/api/funcionarios"
+            }
+          },
+          {
+            "name": "Excluir funcionário por ID",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": "http://localhost:8081/api/funcionarios/:id"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Notificacao",
+        "item": [
+          {
+            "name": "Listar todas as notificações",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": "http://localhost:8081/notificacoes"
+            }
+          },
+          {
+            "name": "Buscar notificação por ID",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": "http://localhost:8081/notificacoes/:id"
+            }
+          },
+          {
+            "name": "Criar nova notificação",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{}"
+              },
+              "url": "http://localhost:8081/notificacoes"
+            }
+          },
+          {
+            "name": "Atualizar notificação por ID",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{}"
+              },
+              "url": "http://localhost:8081/notificacoes/:id"
+            }
+          },
+          {
+            "name": "Excluir notificação por ID",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": "http://localhost:8081/notificacoes/:id"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Processo",
+        "item": [
+          {
+            "name": "Listar todos os processos",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": "http://localhost:8081/processo"
+            }
+          },
+          {
+            "name": "Buscar processo por ID",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": "http://localhost:8081/processo/:id"
+            }
+          },
+          {
+            "name": "Criar novo processo",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{}"
+              },
+              "url": "http://localhost:8081/processo"
+            }
+          },
+          {
+            "name": "Atualizar processo por ID",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{}"
+              },
+              "url": "http://localhost:8081/processo/:id"
+            }
+          },
+          {
+            "name": "Deletar processo por ID",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": "http://localhost:8081/processo/:id"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Usuario",
+        "item": [
+          {
+            "name": "Listar todos os usuários",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": "http://localhost:8081/api/usuarios"
+            }
+          },
+          {
+            "name": "Buscar usuário por ID",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": "http://localhost:8081/api/usuarios/:id"
+            }
+          },
+          {
+            "name": "Criar novo usuário",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{}"
+              },
+              "url": "http://localhost:8081/api/usuarios"
+            }
+          },
+          {
+            "name": "Atualizar usuário por ID",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{}"
+              },
+              "url": "http://localhost:8081/api/usuarios/:id"
+            }
+          },
+          {
+            "name": "Deletar usuário por ID",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": "http://localhost:8081/api/usuarios/:id"
+            }
+          }
+        ]
+      }
+    ]
+  }
